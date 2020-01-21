@@ -286,7 +286,7 @@ fun IrSimpleFunction.collectRealOverrides(): Set<IrSimpleFunction> {
 // This implementation is from kotlin-native
 // TODO: use this implementation instead of any other
 fun IrSimpleFunction.resolveFakeOverride(): IrSimpleFunction? {
-    return collectRealOverrides().singleOrNull { it.modality != Modality.ABSTRACT }
+    return collectRealOverrides().firstOrNull { it.modality != Modality.ABSTRACT }
 }
 
 fun IrSimpleFunction.isOrOverridesSynthesized(): Boolean {
